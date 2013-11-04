@@ -2,6 +2,7 @@ SET (dai_srcs
     graph.cpp
     dag.cpp
     bipgraph.cpp
+    cobwebgraph.cpp
     varset.cpp
     daialg.cpp
     alldai.cpp
@@ -67,6 +68,9 @@ IF(WITH_DECMAP)
     SET(dai_srcs ${dai_srcs} decmap.cpp)
 ENDIF(WITH_DECMAP)
 
+IF(WITH_GLC)
+    SET(dai_srcs ${dai_srcs} glc.cpp)
+ENDIF(WITH_GLC)
 
 ADD_LIBRARY (dai ${dai_srcs})
 TARGET_LINK_LIBRARIES (dai ${EXTRA_LIBS})

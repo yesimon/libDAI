@@ -57,6 +57,7 @@ SET(WITH_MR ON CACHE BOOL "Build with loop corrections as proposed by Montanari 
 SET(WITH_GIBBS ON CACHE BOOL "Build with Gibbs sampling (GIBBS)")
 SET(WITH_CBP ON CACHE BOOL "Build with Conditioned Belief Propagation (CBT)")
 SET(WITH_DECMAP ON CACHE BOOL "Build with MAP state by decimation (DECMAP)")
+SET(WITH_GLC ON CACHE BOOL "Build with Generalized Loop Correction (GLC)")
 
 SET(WITH_MATLAB OFF CACHE BOOL "Build MatLab interface? (MatLab needs to be installed)")
 SET(WITH_CIMG OFF CACHE BOOL "Build image segmentation example? (CImg needs to be installed)")
@@ -102,6 +103,9 @@ ENDIF(WITH_CBP)
 IF(WITH_DECMAP)
     ADD_DEFINITIONS ("-DDAI_WITH_DECMAP")
 ENDIF(WITH_DECMAP)
+IF(WITH_GLC)
+    ADD_DEFINITIONS ("-DDAI_WITH_GLC")
+ENDIF(WITH_GLC)
 
 IF (WITH_TESTS)
     ENABLE_TESTING()
@@ -126,6 +130,7 @@ ADD_SUBDIRECTORY (examples)
 # TODOs:
 # * note that matlab is not working out of the box with CMake
 
+ADD_SUBDIRECTORY (swig)
 # add swig
 # add python
 

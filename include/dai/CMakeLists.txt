@@ -2,6 +2,7 @@ SET (dai_hdrs
     alldai.h
     bipgraph.h
     clustergraph.h
+    cobwebgraph.h
     dag.h
     daialg.h
     doc.h
@@ -72,5 +73,10 @@ ENDIF(WITH_CBP)
 IF(WITH_DECMAP)
     SET(dai_hdrs ${dai_hdrs} decmap.h)
 ENDIF(WITH_DECMAP)
+
+IF(WITH_GLC)
+    SET(dai_hdrs ${dai_hdrs} glc.h)
+ENDIF(WITH_GLC)
+
 
 INSTALL (FILES ${dai_hdrs} DESTINATION include/dai COMPONENT main)
