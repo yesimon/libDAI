@@ -5,6 +5,7 @@ compiler:
   - clang
 
 before_script:
+  - sudo apt-get install -qq libboost-all-dev libgmp-dev swig
   - mkdir build
   - cd build
   - cmake ..
