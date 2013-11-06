@@ -45,9 +45,6 @@
 # (To distribute this file outside of CMake, substitute the full
 #  License text for the above reference.)
 
-include(CMakeFindFrameworks)
-
-variable_watch(PYTHON_INCLUDE_DIR)
 if(PYTHON_EXECUTABLE AND EXISTS ${PYTHON_EXECUTABLE}-config)
   set(PYTHON_CONFIG ${PYTHON_EXECUTABLE}-config CACHE PATH "" FORCE)
 else()
@@ -66,6 +63,7 @@ if (PYTHON_CONFIG AND NOT ${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
     separate_arguments(PYTHON_INCLUDE_DIR)
 endif()
 
+include(CMakeFindFrameworks)
 # Search for the python framework on Apple.
 CMAKE_FIND_FRAMEWORKS(Python)
 
